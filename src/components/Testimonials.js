@@ -28,18 +28,29 @@ const TestimonialText = styled.p`
   font-style: italic;
 `;
 
+const TestimonialImage = styled.img`
+  width: 130px;  
+  height: 130px; 
+  border-radius: 10%;  
+  object-fit: cover;  
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+`;
+
+
+
 const Testimonials = () => {
     const testimonialData = [
         {
-            name: 'Jane Doe',
+            name: 'Frank',
             text: 'This app changed my life. A must-have!',
         },
         {
-            name: 'John Smith',
+            name: 'John',
             text: 'Finally, something that works. Highly recommend it.',
         },
         {
-            name: 'Emily Davis',
+            name: 'Emily',
             text: 'Can\'t believe how good this is. 10/10!',
         }
     ];
@@ -53,6 +64,7 @@ const Testimonials = () => {
                     animate={{opacity: 1}}
                     transition={{delay: index * 0.5}}
                 >
+                    <TestimonialImage src={`/images/${testimonial.name}.jpg`} alt={testimonial.name} />
                     <TestimonialName>{testimonial.name}</TestimonialName>
                     <TestimonialText>"{testimonial.text}"</TestimonialText>
                 </TestimonialCard>

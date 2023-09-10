@@ -10,11 +10,16 @@ const ProductCard = styled(motion.div)`
   padding: 0.5rem;
   margin: 1rem;
   min-width: 200px;
+  width: calc(50% - 2rem); 
   max-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: calc(45% - 2rem); 
+  }
 `;
 
 const ProductImage = styled.img`

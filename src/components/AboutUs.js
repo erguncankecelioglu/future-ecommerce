@@ -31,7 +31,7 @@ const AboutUs = () => {
             <h2>
                 <StyledLink to="/about-us">About Us</StyledLink>
             </h2>
-            <p>We are the best in the business.</p>
+            <p>We are the best in the business. (CLICK ME!)</p>
         </AboutContainer>
     );
 };
