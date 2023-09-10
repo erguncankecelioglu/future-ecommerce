@@ -152,6 +152,7 @@ const AccountDashboard = () => {
 
     useEffect(() => {
         if (!currentUser) {
+            navigate('/login');
         }
     }, [currentUser, navigate]);
     useEffect(() => {
@@ -163,7 +164,7 @@ const AccountDashboard = () => {
                     const token = sessionStorage.getItem('jwt');
                     const username = sessionStorage.getItem('user');
 
-                    const response = await fetch('http://localhost:4000/orders', {
+                    const response = await fetch(`${process.env.REACT_APP_API_URL}/orders`, {
                         method: 'GET',
                         headers: {
                             'Authorization': `Bearer ${token}`,

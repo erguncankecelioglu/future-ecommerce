@@ -1,5 +1,6 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -33,7 +34,7 @@ export function AuthProvider({children}) {
 
     const login = async (username, password) => {
         try {
-            const res = await axios.post('http://localhost:4000/login', {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
                 username,
                 password,
             });
@@ -45,10 +46,9 @@ export function AuthProvider({children}) {
         }
     };
 
-
     const register = async (username, password) => {
         try {
-            const res = await axios.post('http://localhost:4000/register', {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
                 username,
                 password,
             });
@@ -63,9 +63,7 @@ export function AuthProvider({children}) {
 
     const logout = () => {
         sessionStorage.removeItem('user');
-
-        localStorage.removeItem('jwt');
-
+        sessionStorage.removeItem('jwt');
         setCurrentUser(null);
     };
 

@@ -37,7 +37,6 @@ app.use(express.json());
 
 
 app.use(cors({
-    origin: 'http://localhost:3000' // replace with your application's actual origin
 }));
 
 app.get('/products', (req, res) => {

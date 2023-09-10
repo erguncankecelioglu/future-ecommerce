@@ -177,7 +177,7 @@ const ProductDetail = () => {
     const [expandedFAQ, setExpandedFAQ] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/product/${id}`)
+        fetch(`${process.env.REACT_APP_API_URL}/product/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log("Product data:", data);

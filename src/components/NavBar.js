@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
+import {Link, useNavigate} from "react-router-dom";
 
 const Logo = styled.div`
   img {
@@ -79,6 +80,8 @@ const navVariants = {
 const NavBar = () => {
     const [open, setOpen] = useState(false);
 
+    const navigate = useNavigate();
+
     return (
         <NavBarContainer
             variants={navVariants}
@@ -89,12 +92,12 @@ const NavBar = () => {
                 {open ? '✖' : '☰'}
             </Hamburger>
             <NavItems open={open}>
-                <a href="/my-account">My Account</a>
-                <a href="/shop">Shop</a>
+                <Link to="/my-account">My Account</Link>
+                <Link to="/shop">Shop</Link>
             </NavItems>
-            <Logo onClick={() => window.location.href = '/'}><img src={`logo.png`} alt="My Logo"/></Logo>
+            <Logo onClick={() => navigate('/')}><img src={`logo.png`} alt="My Logo"/></Logo>
             <NavItemsRight open={open}>
-                <a href="/cart">Cart</a>
+                <Link to={"/cart"}>Cart</Link>
             </NavItemsRight>
         </NavBarContainer>
     );

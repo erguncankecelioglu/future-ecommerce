@@ -43,7 +43,7 @@ const ProductList = ({filter = 'all'}) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/products')
+        fetch(`${process.env.REACT_APP_API_URL}/products`)
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch(err => console.error('Error fetching products:', err));
