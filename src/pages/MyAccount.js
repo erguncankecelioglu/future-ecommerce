@@ -187,7 +187,7 @@ const AccountDashboard = () => {
 
             fetchOrders();
         }
-    }, []);
+    }, );
 
     return (
         <DashboardContainer>

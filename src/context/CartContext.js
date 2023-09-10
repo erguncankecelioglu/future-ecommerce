@@ -3,7 +3,6 @@ import React, {createContext, useContext, useEffect, useState} from 'react';
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
-    const initialCart = JSON.parse(localStorage.getItem('cart')) || [];
     const [username, setUsername] = useState(() => {
         const sessionUser = sessionStorage.getItem('user');
         return sessionUser ? sessionUser : null;
