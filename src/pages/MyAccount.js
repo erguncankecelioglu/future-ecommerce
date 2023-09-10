@@ -175,9 +175,7 @@ const AccountDashboard = () => {
                     if (response.status === 200) {
                         const data = await response.json();
                         setLocalOrders(data);
-                        console.log(data);
                     } else {
-                        console.log(response);
                         console.log('No orders found or some issue with fetching.');
                     }
                 } catch (error) {

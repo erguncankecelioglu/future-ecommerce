@@ -53,19 +53,15 @@ export const CartProvider = ({children}) => {
 
     const addToOrder = async ({items, totalValue}) => {
         try {
-            setUsername(sessionStorage.getItem('user'))
-            console.log('username', username)
+            const currentUsername = sessionStorage.getItem('user');
             const token = sessionStorage.getItem('jwt');
-            console.log('token', token)
-            console.log('items', items)
-            console.log('totalValue', totalValue)
             const response = await fetch(`/api/orders`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify({username, totalValue, items})
+                body: JSON.stringify({username: currentUsername, totalValue, items})
             });
 
             if (response.status === 201) {

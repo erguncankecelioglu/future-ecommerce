@@ -73,9 +73,12 @@ app.post('/register', (req, res) => {
 
     db.run(`INSERT INTO user (username, password) VALUES (?, ?)`, [username, hashedPassword], function (err) {
         if (err) {
+            console.log("Error:", err);
+            console.log("SQL error code:", this.changes);
             return res.status(400).json({error: "Username exists."});
         }
 
+        console.log('Last ID:', this.lastID);
         // Generate JWT here and respond
         const token = jwt.sign({id: this.lastID}, 'your_jwt_secret');
 
@@ -115,6 +118,7 @@ app.post('/orders', authenticateJWT, (req, res) => {
         if (err) {
             return res.status(400).json({error: err.message});
         }
+        console.log('user:', username, 'items:', itemsString, 'totalValue:', totalValue, 'date:', date);
         return res.status(201).json({message: 'Order created', id: this.lastID});
     });
 });
@@ -122,10 +126,14 @@ app.post('/orders', authenticateJWT, (req, res) => {
 
 app.get('/orders', authenticateJWT, (req, res) => {
     const username = req.headers['x-username'];
+    console.log(username);
+
     db.all(`SELECT * FROM orders WHERE username = ?`, [username], (err, rows) => {
         if (err) {
+            console.log(err);
             return res.status(400).json({error: err.message});
         }
+        console.log(rows);
         return res.status(200).json(rows);
     });
 });
