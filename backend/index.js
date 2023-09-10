@@ -35,7 +35,6 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 app.use(express.json());
 
-
 app.use(cors({
 }));
 
@@ -88,7 +87,7 @@ app.post('/register', (req, res) => {
 
 
 function authenticateJWT(req, res, next) {
-    const token = req.header('Authorization')?.split(' ')[1]; // Bearer <token>
+    const token = req.header('Authorization').split(' ')[1]; // Bearer <token>
 
     if (token) {
         jwt.verify(token, 'your_jwt_secret', (err, user) => {
@@ -152,7 +151,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
