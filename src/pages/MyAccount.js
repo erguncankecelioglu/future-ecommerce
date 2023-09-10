@@ -164,7 +164,7 @@ const AccountDashboard = () => {
                     const token = sessionStorage.getItem('jwt');
                     const username = sessionStorage.getItem('user');
 
-                    const response = await fetch(`${process.env.REACT_APP_API_URL}/orders`, {
+                    const response = await fetch(`/api/orders`, {
                         method: 'GET',
                         headers: {
                             'Authorization': `Bearer ${token}`,

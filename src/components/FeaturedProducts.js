@@ -49,7 +49,7 @@ const FeaturedProducts = () => {
 
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/products`)
+        fetch(`/api/products`)
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch(err => console.error('Error fetching products:', err));

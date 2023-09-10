@@ -33,7 +33,7 @@ export function AuthProvider({children}) {
 
     const login = async (username, password) => {
         try {
-            const res = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+            const res = await axios.post(`/api/login`, {
                 username,
                 password,
             });
@@ -47,7 +47,7 @@ export function AuthProvider({children}) {
 
     const register = async (username, password) => {
         try {
-            const res = await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
+            const res = await axios.post(`/api/register`, {
                 username,
                 password,
             });
