@@ -9,8 +9,8 @@ const ProductCard = styled(motion.div)`
   border-radius: 10px;
   padding: 0.5rem;
   margin: 1rem;
-  min-width: 200px;
-  width: calc(50% - 2rem); 
+  min-width: 100px;
+  width: calc(30%); 
   max-width: 200px;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ const ProductCard = styled(motion.div)`
   align-items: center;
 
   @media (max-width: 768px) {
-    width: calc(45% - 2rem); 
+    width: calc(35%); 
   }
 `;
 
@@ -41,6 +41,7 @@ const ProductContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-left: 0.5rem;
 `;
 
 const ProductList = ({filter = 'all'}) => {

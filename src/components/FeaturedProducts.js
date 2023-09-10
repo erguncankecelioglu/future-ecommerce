@@ -8,21 +8,27 @@ const ProductContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 2rem;
+  padding-left: 10%;
   font-family: 'Poppins', sans-serif;
 `;
 
 const ProductCard = styled(motion.div)`
-  width: 200px;
-  height: 300px;
   background: white;
   border: 1px solid #ccc;
   border-radius: 10px;
+  padding: 0.5rem;
   margin: 1rem;
+  min-width: 100px;
+  width: calc(30%); // Adjust based on your layout
+  max-width: 200px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+
+  @media (max-width: 768px) {
+    width: calc(35%);  // Adjust based on your mobile layout
+  }
 `;
 
 const ProductImage = styled.img`
